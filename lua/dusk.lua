@@ -10,33 +10,31 @@ local function highlight(group, styles)
   vim.api.nvim_command('highlight! '..group..' '..gui..' '..sp..' '..fg..' '..bg)
 end
 
-local bg             = '#191622'
-local bg_dark        = '#13111b'
-local bg_darker      = '#15121e'
-local bg_light       = '#201b2d'
-local bg_lighter     = '#252131'
-local grey           = '#8796b0'
-local grey_dark      = '#353b52'
-local red            = '#ed4556'
-local heavy_red      = '#e61f44'
-local green          = '#67e480'
-local green_high     = '#67e480'
-local blue           = '#78d1e1'
-local blue_light     = '#78d1e1'
-local yellow         = '#e7de79'
-local orange         = '#e7de79'
-local purple         = '#988bc7'
-local magenta        = '#988bc7'
-local cyan           = '#a1efe4'
-local cyan_dark      = '#a1efe4'
-local pink           = '#ff79c6'
-local fg             = '#e1e1e6'
-local fg_light       = '#e1e1e6'
-local fg_dark        = '#e1e1e6'
-local hollow         = '#424760'
-local hollow_lighter = '#30354e'
-local white          = '#e1e1e6'
-local comment        = '#5a4b81'
+local bg             = '#2e303e'
+local bg_dark        = '#2e303e'
+local bg_darker      = '#2e303e'
+local bg_light       = '#393b4d'
+local bg_lighter     = '#393b4d'
+local grey           = '#9699b7'
+local grey_dark      = '#44465c'
+local red            = '#ec6a88'
+local heavy_red      = '#e95678'
+local green          = '#3fdaa4'
+local blue           = '#3fc6de'
+local blue_light     = '#26bbd9'
+local yellow         = '#efb993'
+local orange         = '#efb993'
+local magenta        = '#b072d1'
+local pink           = '#b771dc'
+local cyan           = '#6be6e6'
+local cyan_dark      = '#59e3e3'
+local fg             = '#e3e6ee'
+local fg_light       = '#e3e6ee'
+local fg_dark        = '#e3e6ee'
+local hollow         = '#44465c'
+local hollow_lighter = '#44465c'
+local white          = '#e3e6ee'
+local comment        = '#9699b7'
 
 -- }}}
 
@@ -50,12 +48,11 @@ local editor_syntax = {
   DiffChange   = { fg = yellow },
   DiffDelete   = { fg = red },
   DiffText     = { fg = blue },
-  EndOfBuffer  = { bg = bg, fg = fg },
+  EndOfBuffer  = { bg = bg, fg = bg },
   ErrorMsg     = { fg = red, gui = 'bold' },
   VertSplit    = { bg = bg_dark, fg = bg },
   Folded       = { fg = fg_dark, gui = 'italic' },
-  FoldColumn   = { fg = yellow },
-  SignColumn   = { fg = yellow },
+  SignColumn   = { fg = bg, bg = bg },
   IncSearch    = { bg = yellow, fg = bg },
   Substitute   = { bg = blue, fg = bg },
   LineNr       = { fg = comment },
@@ -67,7 +64,7 @@ local editor_syntax = {
   PmenuSel     = { bg = cyan, fg = bg_lighter, gui = 'bold' },
   PmenuSbar    = { bg = bg_lighter },
   PmenuThumb   = { bg = fg },
-  Search       = { bg = hollow },
+  Search       = { bg = orange, fg = hollow },
   SpecialKey   = { bg = bg_light },
   SpellBad     = { gui = 'underline', sp = red },
   SpellCap     = { gui = 'underline', sp = yellow },
@@ -76,7 +73,7 @@ local editor_syntax = {
   TabLine      = { bg = bg, fg = fg },
   TabLineFill  = { bg = bg, fg = fg },
   TabLineSel   = { bg = bg, fg = fg, gui = 'bold'},
-  Title        = { fg = green },
+  Title        = { fg = blue },
   Visual       = { bg = hollow_lighter },
   VisualNOS    = { bg = hollow_lighter },
   WarningMsg   = { fg = yellow, gui = 'italic' },
@@ -106,17 +103,17 @@ local editor_syntax = {
   gitcommitFile          = {},
 
   -- User dependent groups, probably useless to change the default:
-  Conceal      = {},
+  Conceal      = { fg = comment },
   ModeMsg      = {},
   MsgArea      = {},
   MsgSeparator = {},
   MoreMsg      = {},
-  NonText      = {},
-  Question     = {},
-  QuickFixLine = {},
-  StatusLine   = {},
-  StatusLineNC = {},
-  WildMenu     = {}
+  NonText      = { fg = comment },
+  Question     = { fg = magenta },
+  QuickFixLine = { fg = bg_light, bg = orange },
+  StatusLine   = { fg = fg, bg = bg },
+  StatusLineNC = { fg = comment },
+  WildMenu     = { fg = hollow }
 }
 
 -- }}}
@@ -125,39 +122,39 @@ local editor_syntax = {
 
 local code_syntax = {
   Comment        = { fg = comment, gui = 'italic' },
-  Constant       = { fg = cyan },
+  Constant       = { fg = yellow },
   String         = { fg = green },
   Character      = { fg = green, gui = 'bold' },
   Number         = { fg = orange },
-  Float          = { fg = orange },
+  Float          = { fg = cyan },
   Boolean        = { fg = orange },
 
-  Identifier     = { fg = heavy_red },
-  Function       = { fg = blue, gui = 'italic' },
+  Identifier     = { fg = cyan },
+  Function       = { fg = orange, gui = 'italic' },
 
-  Statement      = { fg = blue_light, gui = 'italic' },
-  Conditional    = { fg = blue, gui = 'italic' },
-  Repeat         = { fg = blue, gui = 'italic' },
+  Statement      = { fg = magenta, gui = 'italic' },
+  Conditional    = { fg = magenta, gui = 'italic' },
+  Repeat         = { fg = magenta, gui = 'italic' },
   Label          = { fg = blue, gui = 'italic' },
-  Exception      = { fg = blue, gui = 'italic' },
-  Operator       = { fg = blue },
-  Keyword        = { fg = heavy_red },
+  Exception      = { fg = magenta, gui = 'italic' },
+  Operator       = { fg = magenta },
+  Keyword        = { fg = blue },
 
-  Include        = { fg = blue_light },
+  Include        = { fg = magenta },
   Define         = { fg = magenta },
   Macro          = { fg = magenta },
   PreProc        = { fg = yellow },
-  PreCondit      = { fg = yellow },
+  PreCondit      = { fg = blue },
 
-  Type           = { fg = yellow },
-  StorageClass   = { fg = yellow },
+  Type           = { fg = blue },
+  StorageClass   = { fg = blue },
   Structure      = { fg = yellow },
   Typedef        = { fg = yellow },
 
   Special        = { fg = blue },
   SpecialChar    = {},
   Tag            = { fg = orange },
-  SpecialComment = { fg = fg_dark, gui = 'bold' },
+  SpecialComment = { fg = comment, gui = 'bold' },
   Debug          = {},
   Delimiter      = {},
 
@@ -184,40 +181,41 @@ local plugin_syntax = {
   TSPunctDelimiter       = { fg = fg },
   TSPunctBracket         = { fg = fg },
   TSPunctSpecial         = { fg = fg },
-  TSConstant             = { fg = pink },
-  TSConstBuiltin         = { fg = pink },
-  TSConstMacro           = { fg = yellow },
-  TSString               = { fg = yellow },
-  TSStringRegex          = { fg = cyan_dark },
+  TSConstant             = { fg = blue },
+  TSConstBuiltin         = { fg = orange },
+  TSConstMacro           = { fg = cyan },
+  TSString               = { fg = green },
+  TSStringRegex          = { fg = green },
   TSStringEscape         = { fg = cyan_dark },
-  TSNumber               = { fg = cyan },
-  TSBoolean              = { fg = cyan },
-  TSFloat                = { fg = cyan },
+  TSNumber               = { fg = orange },
+  TSBoolean              = { fg = orange },
+  TSFloat                = { fg = green },
   TSFunction             = { fg = blue_light },
-  TSKeywordFunction      = { fg = blue_light },
-  TSFuncBuiltin          = { fg = magenta },
+  TSFuncBuiltin          = { fg = blue },
   TSFuncMacro            = { fg = orange },
-  TSParameter            = { fg = white },
-  TSParameterReference   = { fg = green_high },
-  TSMethod               = { fg = green },
-  TSField                = { fg = blue_light },
-  TSProperty             = { fg = fg },
-  TSConstructor          = { fg = pink },
-  TSConditional          = { fg = pink, gui = 'italic' },
-  TSRepeat               = { fg = blue, gui = 'italic' },
-  TSException            = { fg = blue, gui = 'italic' },
+  TSParameter            = { fg = cyan },
+  TSParameterReference   = { fg = cyan },
+  TSMethod               = { fg = blue },
+  TSField                = { fg = red },
+  TSProperty             = { fg = orange },
+  TSConstructor          = { fg = blue },
+  TSConditional          = { fg = magenta, gui = 'italic' },
+  TSRepeat               = { fg = magenta, gui = 'italic' },
+  TSException            = { fg = magenta, gui = 'italic' },
   TSLabel                = { fg = cyan_dark, gui = 'italic' },
-  TSOperator             = { fg = pink },
-  TSKeyword              = { fg = pink },
-  TSType                 = { fg = yellow },
-  TSTypeBuiltin          = { fg = orange },
+  TSOperator             = { fg = magenta },
+  TSKeyword              = { fg = magenta },
+  TSKeywordFunction      = { fg = magenta },
+  TSKeywordOperator      = { fg = magenta },
+  TSType                 = { fg = blue },
+  TSTypeBuiltin          = { fg = blue },
   TSStructure            = { fg = orange },
   TSInclude              = { fg = pink },
-  TSTag                  = { fg = pink },
-  TSTagDelimiter         = { fg = fg },
+  TSTag                  = { fg = red },
+  TSTagDelimiter         = { fg = comment },
   -- TSAnnotation = {},
-  TSVariable = { fg = fg },
-  TSVariableBuiltin = { fg = fg },
+  TSVariable = { fg = cyan },
+  TSVariableBuiltin = { fg = cyan },
   -- TSDefinitionUsage = {},
   -- TSDefinition = {},
   -- TSCurrentScope                 = {},
@@ -232,26 +230,6 @@ local plugin_syntax = {
 
 -- }}}
 
--- Syntax Plugin And Language Highlight Groups {{{
-
-local lang_syntax = {
-  -- zsh.vim
-  zshTodo            = code_syntax.Todo,
-  zshComment         = code_syntax.Comment,
-  zshPreProc         = code_syntax.PreProc,
-  zshString          = code_syntax.String,
-  zshStringDelimiter = { fg = cyan },
-  zshPrecommand      = { fg = blue },
-  zshKeyword         = code_syntax.Function,
-  zshCommands        = { fg = blue },
-  zshOptStart        = { fg = blue, gui = 'italic' },
-  zshOption          = { fg = cyan, gui = 'italic' },
-  zshNumber          = code_syntax.Number,
-  zshSubst           = { fg = yellow },
-  zshSubstDelim      = { fg = cyan },
-}
-
--- }}}
 
 -- Setting Neovim Terminal Color {{{
 
