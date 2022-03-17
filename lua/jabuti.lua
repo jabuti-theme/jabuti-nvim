@@ -12,8 +12,8 @@ end
 
 local bg             = '#292a37'
 local bg_dark        = '#292a37'
-local bg_darker      = '#292a37'
-local bg_light       = '#303241'
+local bg_darker      = '#252632'
+local bg_light       = '#2e303e'
 local bg_lighter     = '#303241'
 local grey           = '#9699b7'
 local grey_dark      = '#393a4d'
@@ -61,9 +61,9 @@ local editor_syntax = {
   Normal       = { fg = fg, bg = bg },
   NormalFloat  = { bg = grey_dark, fg = white },
   Pmenu        = { bg = bg_darker, fg = fg_light },
-  PmenuSel     = { bg = cyan, fg = bg_lighter, gui = 'bold' },
+  PmenuSel     = { bg = bg_light, fg = white, gui = 'bold' },
   PmenuSbar    = { bg = bg_lighter },
-  PmenuThumb   = { bg = fg },
+  PmenuThumb   = { bg = bg },
   Search       = { bg = orange, fg = hollow },
   SpecialKey   = { bg = bg_light },
   SpellBad     = { gui = 'underline', sp = red },
@@ -169,6 +169,17 @@ local code_syntax = {
 -- Plugin Highlight Groups {{{
 
 local plugin_syntax = {
+  NvimTreeNormal         = { bg = bg_darker },
+  NvimTreeEndOfBuffer    = { bg = bg_darker, fg = bg_darker },
+
+  CmpItemMenu            = { fg = comment },
+  CmpItemAbbr            = { fg = comment },
+  CmpItemAbbrMatch       = { fg = white },
+  CmpItemAbbrMatchFuzzy  = { fg = white },
+  CmpItemKind            = { fg = blue },
+
+  IndentBlanklineChar    = { fg = bg_lighter },
+
   GitGutterAdd           = { fg = green },
   GitGutterChange        = { fg = yellow },
   GitGutterDelete        = { fg = red },
