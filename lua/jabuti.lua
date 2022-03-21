@@ -237,6 +237,16 @@ local plugin_syntax = {
   -- TSTitle                = {},
   -- TSLiteral              = {},
   -- TSURI                  = {},
+  --
+    TelescopeBorder      = { fg = bg_darker, bg = bg_darker },
+    TelescopePromptBorder= { fg = bg_lighter, bg = bg_lighter },
+    TelescopePromptNormal= { fg = white, bg = bg_lighter },
+    TelescopePromptPrefix= { fg = red, bg = bg_lighter },
+    TelescopeNormal      = { bg = bg_darker },
+    TelescopePreviewTitle= { fg = bg, bg = green },
+    TelescopePromptTitle = { fg = bg, bg = red },
+    TelescopeResultsTitle= { fg = bg, bg = bg_darker }
+
 }
 
 -- }}}
