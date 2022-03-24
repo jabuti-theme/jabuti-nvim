@@ -15,6 +15,7 @@ local bg_dark        = '#292a37'
 local bg_darker      = '#252632'
 local bg_light       = '#2e303e'
 local bg_lighter     = '#303241'
+local light_grey     = '#44465c'
 local grey           = '#9699b7'
 local grey_dark      = '#393a4d'
 local red            = '#ec6a88'
@@ -78,6 +79,7 @@ local editor_syntax = {
   VisualNOS    = { bg = hollow_lighter },
   WarningMsg   = { fg = yellow, gui = 'italic' },
   Whitespace   = { bg = bg },
+  WinSeparator = { guifg = light_grey },
 
   -- git highlighting
   gitcommitComment        = { fg = fg_dark, gui = 'italic' },
