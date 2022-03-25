@@ -79,7 +79,7 @@ local editor_syntax = {
   VisualNOS    = { bg = hollow_lighter },
   WarningMsg   = { fg = yellow, gui = 'italic' },
   Whitespace   = { bg = bg },
-  WinSeparator = { fg = light_grey, bg = bg_darker },
+  WinSeparator = { fg = light_grey },
 
   -- git highlighting
   gitcommitComment        = { fg = fg_dark, gui = 'italic' },
